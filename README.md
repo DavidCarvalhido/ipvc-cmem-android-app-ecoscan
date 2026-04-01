@@ -1,0 +1,1 @@
+# Computação Móvel e Multisensorial Project - EcoScan App Mobile
