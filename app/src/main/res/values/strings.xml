@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">EcoScanCMEM</string>
+    <string name="app_name">EcoScan</string>
     <string name="action_settings">Settings</string>
     <string name="splash_tagline">Identifica materiais e descobre\ncomo reciclar corretamente</string>
     <string name="splash_features_label">O que podes fazer</string>
@@ -17,4 +17,44 @@
     <string name="feature_dest_desc">Indica o ecoponto certo e dicas para reduzir o impacto ambiental</string>
     <string name="feature_history_title">Histórico de scans</string>
     <string name="feature_history_desc">Regista os materiais identificados e acompanha os teus hábitos</string>
+
+    <!-- Scan Screen -->
+    <string name="scan_hint">Aponta para um objeto ou rótulo</string>
+    <string name="warning_low_light">Pouca luz — aponta para uma zona mais iluminada</string>
+    <string name="analysis_running">A analisar… Object Detection + OCR ativos</string>
+    <string name="sensor_light">Luz ambiente</string>
+    <string name="sensor_stability">Dispositivo</string>
+    <string name="sensor_mode">Modo ativo</string>
+    <string name="mode_object">Objeto</string>
+    <string name="mode_label">Rótulo</string>
+    <string name="torch">Lanterna</string>
+    <string name="history">Histórico</string>
+    <string name="back">Voltar</string>
+    <string name="info">Informação</string>
+
+    <!-- Results -->
+    <string name="result_title">Resultado da análise</string>
+    <string name="result_placeholder_name">A identificar…</string>
+    <string name="result_placeholder_sub">Aguarda a análise</string>
+    <string name="section_ecopoint">Onde depositar</string>
+    <string name="section_impact">Impacto ambiental</string>
+    <string name="section_ocr">Texto detetado (OCR)</string>
+    <string name="section_tips">Dicas rápidas</string>
+    <string name="ecopoint_yellow">Ecoponto Amarelo</string>
+    <string name="ecopoint_blue">Ecoponto Azul</string>
+    <string name="ecopoint_green">Ecoponto Verde</string>
+    <string name="ecopoint_red">Resíduos especiais</string>
+    <string name="ecopoint_none">Lixo geral</string>
+    <string name="ecopoint_store">Loja com recolha</string>
+    <string name="ecopoint_accepts">Plástico e metal</string>
+    <string name="ecopoint_nearby">120 m</string>
+    <string name="impact_co2">CO₂ poupado ao reciclar</string>
+    <string name="impact_decomp">Para se decompor em aterro</string>
+    <string name="impact_energy">Energia poupada vs. produção nova</string>
+    <string name="impact_code">Código de reciclagem</string>
+    <string name="btn_save">Guardar no histórico</string>
+    <string name="btn_new_scan">Fazer novo scan</string>
+    <string name="saved_ok">Scan guardado com sucesso</string>
+    <string name="share_title">Partilhar resultado</string>
+    <string name="share">Partilhar</string>
 </resources>
