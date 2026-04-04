@@ -1,3 +1,20 @@
 <resources>
     <string name="app_name">EcoScanCMEM</string>
+    <string name="action_settings">Settings</string>
+    <string name="splash_tagline">Identifica materiais e descobre\ncomo reciclar corretamente</string>
+    <string name="splash_features_label">O que podes fazer</string>
+    <string name="splash_env_title">Porquê reciclar bem?</string>
+    <string name="splash_env_text">40% dos resíduos recicláveis da UE vão para aterro por separação incorreta. A tua escolha faz a diferença.</string>
+    <string name="splash_btn_start">Começar a usar</string>
+    <string name="splash_btn_how">Como funciona?</string>
+
+    <!-- Feature rows -->
+    <string name="feature_scanner_title">Scanner em tempo real</string>
+    <string name="feature_scanner_desc">Aponta a câmara para qualquer objeto e identifica o material automaticamente</string>
+    <string name="feature_ocr_title">Leitura de rótulos (OCR)</string>
+    <string name="feature_ocr_desc">Lê automaticamente o código de reciclagem e os materiais do rótulo</string>
+    <string name="feature_dest_title">Destino correto</string>
+    <string name="feature_dest_desc">Indica o ecoponto certo e dicas para reduzir o impacto ambiental</string>
+    <string name="feature_history_title">Histórico de scans</string>
+    <string name="feature_history_desc">Regista os materiais identificados e acompanha os teus hábitos</string>
 </resources>
