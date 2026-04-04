@@ -23,7 +23,7 @@
 
     <fragment
         android:id="@+id/scanFragment"
-        android:name="com.android.daviddev.ecoscancmem.ui.SplashFragment"
+        android:name="com.android.daviddev.ecoscancmem.ui.ScanFragment"
         android:label="Scan"
         tools:layout="@layout/fragment_scan" />
 
@@ -32,5 +32,14 @@
         android:name="com.android.daviddev.ecoscancmem.ui.HowItWorksFragment"
         android:label="Como funciona"
         tools:layout="@layout/fragment_how_it_works" />
+
+    <fragment
+        android:id="@+id/resultFragment"
+        android:name="com.android.daviddev.ecoscancmem.ui.ResultFragment"
+        android:label="Resultado">
+        <argument
+            android:name="scanResult"
+            app:argType="com.android.daviddev.ecoscancmem.data.model.ScanResult" />
+    </fragment>
 
 </navigation>
