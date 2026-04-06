@@ -4,6 +4,7 @@ import android.app.Application
 import android.net.Uri
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
+import com.android.daviddev.ecoscancmem.data.MaterialMapper
 import com.android.daviddev.ecoscancmem.data.ScanRepository
 import com.android.daviddev.ecoscancmem.data.db.EcoScanDatabase
 import com.android.daviddev.ecoscancmem.data.model.MaterialDatabase
@@ -106,15 +107,8 @@ class ScanViewModel(application: Application) : AndroidViewModel(application) {
         if (text.isBlank()) return
 
         lastOcrText = text
-
-        // Tenta extrair código de reciclagem diretamente
-        val code = extractRecycleCode(text)
-        if (code != null) {
-            buildAndEmitResult(recycleCodeOverride = code)
-        } else if (lastObjectLabel != null) {
-            // Combina OCR + deteção de objeto
-            buildAndEmitResult()
-        }
+        _isAnalysing.value = true
+        buildAndEmitResult()
     }
 
     // ML KIT: OBJECT DETECTION
@@ -122,66 +116,65 @@ class ScanViewModel(application: Application) : AndroidViewModel(application) {
         if (!canAcceptResult()) return
         if (objects.isEmpty()) return
 
+        // Apanha o objeto com label de maior confiança
+        data class Candidate(val label: String, val confidence: Float)
+
         val best = objects
-            .flatMap { obj -> obj.labels.map { label -> label to obj } }
-            .maxByOrNull { it.first.confidence }
+            .flatMap { obj -> obj.labels.map { label -> Candidate(label.text, label.confidence) } }
+            .maxByOrNull { it.confidence }
             ?: return
 
-        val (label, _) = best
-        if (label.confidence < MIN_CONFIDENCE) return
+        // Guarda sempre — o MaterialMapper decide se tem confiança suficiente
+        lastObjectLabel = best.label
+        lastObjectConfidence = best.confidence
 
-        lastObjectLabel = label.text
-        lastObjectConfidence = label.confidence
-
+        _isAnalysing.value = true
         buildAndEmitResult()
     }
 
     // CONSTRUÇÃO DO RESULTADO
     private fun buildAndEmitResult(recycleCodeOverride: String? = null) {
-        // Não emite resultado se a luz for insuficiente ou dispositivo instável
-        if (!_isLightSufficient.value) return
-        if (!_isDeviceStable.value) return
-
-        val ocrText = lastOcrText
-        val objectLabel = lastObjectLabel
-
-        val info: MaterialDatabase.MaterialInfo = when {
-            recycleCodeOverride != null ->
-                MaterialDatabase.getByCode(recycleCodeOverride)
-
-            ocrText != null -> {
-                val code = extractRecycleCode(ocrText)
-                when {
-                    code != null -> MaterialDatabase.getByCode(code)
-                    objectLabel != null -> MaterialDatabase.getByLabel(objectLabel)
-                    else -> return
-                }
-            }
-
-            objectLabel != null ->
-                MaterialDatabase.getByLabel(objectLabel)
-
-            else -> return
+        if (!_isLightSufficient.value) {
+            _isAnalysing.value = false; return
+        }
+        if (!_isDeviceStable.value) {
+            _isAnalysing.value = false; return
         }
 
-        val confidence = when {
-            recycleCodeOverride != null -> 95
-            lastObjectConfidence > 0f -> (lastObjectConfidence * 100).toInt()
-            else -> 75
+        val mapped = if (recycleCodeOverride != null) {
+            MaterialMapper.MappedMaterial(
+                key = recycleCodeOverride,
+                confidence = 95,
+                source = MaterialMapper.Source.OCR_CODE
+            )
+        } else {
+            MaterialMapper.resolve(
+                objectLabel = lastObjectLabel,
+                objectConfidence = lastObjectConfidence,
+                ocrText = lastOcrText
+            )
         }
+
+        // Sem resultado com confiança suficiente — continua a analisar
+        if (mapped == null) return
+
+        val info = MaterialDatabase.getByCode(mapped.key)
 
         _analysisResult.value = ScanResult(
             materialName = info.name,
             materialSubtitle = info.subtitle,
-            recycleCode = recycleCodeOverride ?: info.recycleCode,
+            recycleCode = mapped.key.let {
+                // tenta extrair código exato do OCR se disponível
+                lastOcrText?.let { t -> MaterialMapper.extractCode(t) } ?: info.recycleCode
+            },
             isRecyclable = info.isRecyclable,
-            confidencePercent = confidence,
+            confidencePercent = mapped.confidence,
             ecopointColor = info.ecopointColor,
             co2SavedGrams = info.co2SavedGrams,
             decompYears = info.decompYears,
             energySavedPercent = info.energySavedPercent,
-            ocrRawText = ocrText,
-            ocrDecodedText = if (ocrText != null) info.subtitle else null,
+            ocrRawText = lastOcrText,
+            ocrDecodedText = if (lastOcrText != null) info.subtitle else null,
             tips = info.tips
         )
 

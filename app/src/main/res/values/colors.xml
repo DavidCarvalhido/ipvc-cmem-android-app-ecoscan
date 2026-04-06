@@ -20,4 +20,21 @@
     <color name="amber_800">#633806</color>
     <color name="amber_warn">#EF9F27</color>
     <color name="surface_secondary">#F5F5F3</color>
+    <!-- Badges dos códigos -->
+    <color name="code_bg_blue">#DBEAFE</color>
+    <color name="code_text_blue">#1E3A8A</color>
+    <color name="code_bg_green">#DCFCE7</color>
+    <color name="code_text_green">#166534</color>
+    <color name="code_bg_yellow">#FEF9C3</color>
+    <color name="code_text_yellow">#854D0E</color>
+    <color name="code_bg_red">#FEE2E2</color>
+    <color name="code_text_red">#991B1B</color>
+    <color name="code_bg_gray">#F3F4F6</color>
+    <color name="code_text_gray">#374151</color>
+    <color name="code_bg_teal">#CCFBF1</color>
+    <color name="code_text_teal">#065F46</color>
+
+    <!-- Semânticas -->
+    <color name="color_danger">#991B1B</color>
+    <color name="color_info">#1E40AF</color>
 </resources>
