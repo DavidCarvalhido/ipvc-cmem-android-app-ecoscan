@@ -19,6 +19,7 @@ mlkit-text = "16.0.0"
 mlkit-obj = "17.0.1"
 ksp = "1.9.20-1.0.14"
 navigation-safeargs = "2.7.6"
+#remoteCreationCompose = "1.0.0-alpha07"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -47,6 +48,7 @@ androidx-lifecycle-viewmodel = { module = "androidx.lifecycle:lifecycle-viewmode
 # ML Kit
 mlkit-text-recognition = { module = "com.google.mlkit:text-recognition", version.ref = "mlkit-text" }
 mlkit-obj-detection = { module = "com.google.mlkit:object-detection", version.ref = "mlkit-obj" }
+#androidx-remote-creation-compose = { group = "androidx.compose.remote", name = "remote-creation-compose", version.ref = "remoteCreationCompose" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

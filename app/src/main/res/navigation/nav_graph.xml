@@ -25,7 +25,11 @@
         android:id="@+id/scanFragment"
         android:name="com.android.daviddev.ecoscancmem.ui.ScanFragment"
         android:label="Scan"
-        tools:layout="@layout/fragment_scan" />
+        tools:layout="@layout/fragment_scan">
+        <action
+            android:id="@+id/action_scan_to_result"
+            app:destination="@id/resultFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/howItWorksFragment"

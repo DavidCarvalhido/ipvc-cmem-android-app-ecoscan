@@ -18,5 +18,6 @@
     <color name="blue_bg">#E3F2FD</color>
     <color name="amber_bg">#FFF8E1</color>
     <color name="amber_800">#633806</color>
+    <color name="amber_warn">#EF9F27</color>
     <color name="surface_secondary">#F5F5F3</color>
 </resources>
