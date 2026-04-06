@@ -46,4 +46,14 @@
             app:argType="com.android.daviddev.ecoscancmem.data.model.ScanResult" />
     </fragment>
 
+    <fragment
+        android:id="@+id/historyFragment"
+        android:name="com.android.daviddev.ecoscancmem.ui.HistoryFragment"
+        android:label="Histórico">
+    </fragment>
+
+    <action
+        android:id="@+id/action_scan_to_history"
+        app:destination="@id/historyFragment" />
+
 </navigation>

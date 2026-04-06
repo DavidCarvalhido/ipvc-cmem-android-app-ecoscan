@@ -4,6 +4,8 @@ import android.app.Application
 import android.net.Uri
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
+import com.android.daviddev.ecoscancmem.data.ScanRepository
+import com.android.daviddev.ecoscancmem.data.db.EcoScanDatabase
 import com.android.daviddev.ecoscancmem.data.model.MaterialDatabase
 import com.android.daviddev.ecoscancmem.data.model.ScanResult
 import com.google.mlkit.vision.objects.DetectedObject
@@ -54,6 +56,11 @@ class ScanViewModel(application: Application) : AndroidViewModel(application) {
 
     // Cooldown após captura manual
     private var captureCooldownActive = false
+
+    // Repositório da app
+    private val repository = ScanRepository(
+        EcoScanDatabase.getInstance(application)
+    )
 
     companion object {
         private const val LUX_THRESHOLD = 50f          // abaixo -> aviso de luz
@@ -184,9 +191,14 @@ class ScanViewModel(application: Application) : AndroidViewModel(application) {
 
     // CAPTURA MANUAL
     fun saveCapture(uri: Uri) {
-        _analysisResult.value = _analysisResult.value?.copy(
-            capturedImageUri = uri.toString()
-        )
+        val current = _analysisResult.value ?: return
+        val withUri = current.copy(capturedImageUri = uri.toString())
+        _analysisResult.value = withUri
+
+        viewModelScope.launch {
+            repository.save(withUri)
+        }
+
         // Cooldown de 2s após captura para evitar análises duplicadas
         captureCooldownActive = true
         viewModelScope.launch {
@@ -203,6 +215,13 @@ class ScanViewModel(application: Application) : AndroidViewModel(application) {
             ScanMode.LABEL -> "OCR"
         }
         clearDetectionBuffers()
+    }
+
+    // Novo metodo chamado pelo ResultFragment no botão "Guardar"
+    fun saveCurrentResult() {
+        viewModelScope.launch {
+            _analysisResult.value?.let { repository.save(it) }
+        }
     }
 
     // LIMPEZA
