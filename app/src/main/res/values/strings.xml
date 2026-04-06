@@ -19,9 +19,10 @@
     <string name="feature_history_desc">Regista os materiais identificados e acompanha os teus hábitos</string>
 
     <!-- Scan Screen -->
+    <string name="camera_permission_denied">Permissão de câmara negada. Ativa nas definições do sistema.</string>
     <string name="scan_hint">Aponta para um objeto ou rótulo</string>
-    <string name="warning_low_light">Pouca luz — aponta para uma zona mais iluminada</string>
-    <string name="analysis_running">A analisar… Object Detection + OCR ativos</string>
+    <string name="warning_low_light">Pouca luz - aponta para uma zona mais iluminada</string>
+    <string name="analysis_running">A analisar... Object Detection + OCR ativos</string>
     <string name="sensor_light">Luz ambiente</string>
     <string name="sensor_stability">Dispositivo</string>
     <string name="sensor_mode">Modo ativo</string>
@@ -31,10 +32,12 @@
     <string name="history">Histórico</string>
     <string name="back">Voltar</string>
     <string name="info">Informação</string>
+    <string name="stable">Estável</string>
+    <string name="moving">Movimento</string>
 
     <!-- Results -->
     <string name="result_title">Resultado da análise</string>
-    <string name="result_placeholder_name">A identificar…</string>
+    <string name="result_placeholder_name">A identificar...</string>
     <string name="result_placeholder_sub">Aguarda a análise</string>
     <string name="section_ecopoint">Onde depositar</string>
     <string name="section_impact">Impacto ambiental</string>
