@@ -135,6 +135,10 @@ class ScanFragment : Fragment(R.layout.fragment_scan) {
             viewModel.setScanMode(ScanViewModel.ScanMode.LABEL)
             updateTabUi(ScanViewModel.ScanMode.LABEL)
         }
+
+        binding.btnHistory.setOnClickListener {
+            findNavController().navigate(R.id.action_scan_to_history)
+        }
     }
 
     private fun updateTabUi(mode: ScanViewModel.ScanMode) {

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_result_card"
+    android:layout_marginBottom="8dp"
+    android:padding="12dp">
+
+    <!-- Ícone do ecoponto -->
+    <ImageView
+        android:id="@+id/ivEcopointColor"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@drawable/bg_feat_teal"
+        android:src="@drawable/ic_ecopoint"
+        android:padding="9dp"
+        android:contentDescription=""
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <!-- Nome do material -->
+    <TextView
+        android:id="@+id/tvItemMaterial"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:textColor="@color/text_primary"
+        android:layout_marginStart="12dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@id/ivEcopointColor"
+        app:layout_constraintEnd_toStartOf="@id/tvItemTimestamp" />
+
+    <!-- Código de reciclagem -->
+    <TextView
+        android:id="@+id/tvItemCode"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        android:textColor="@color/text_secondary"
+        android:layout_marginTop="3dp"
+        android:layout_marginStart="12dp"
+        app:layout_constraintTop_toBottomOf="@id/tvItemMaterial"
+        app:layout_constraintStart_toEndOf="@id/ivEcopointColor"
+        app:layout_constraintEnd_toStartOf="@id/tvItemTimestamp" />
+
+    <!-- CO2 poupado -->
+    <TextView
+        android:id="@+id/tvItemCo2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textSize="11sp"
+        android:textColor="@color/green_primary"
+        android:layout_marginTop="2dp"
+        android:layout_marginStart="12dp"
+        app:layout_constraintTop_toBottomOf="@id/tvItemCode"
+        app:layout_constraintStart_toEndOf="@id/ivEcopointColor"
+        app:layout_constraintEnd_toStartOf="@id/tvItemTimestamp"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <!-- Timestamp -->
+    <TextView
+        android:id="@+id/tvItemTimestamp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="11sp"
+        android:textColor="@color/text_tertiary"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Seta -->
+    <ImageView
+        android:layout_width="14dp"
+        android:layout_height="14dp"
+        android:src="@drawable/ic_chevron_right"
+        android:contentDescription=""
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

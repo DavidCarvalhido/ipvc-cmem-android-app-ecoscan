@@ -60,4 +60,19 @@
     <string name="saved_ok">Scan guardado com sucesso</string>
     <string name="share_title">Partilhar resultado</string>
     <string name="share">Partilhar</string>
+
+    <!-- Room -->
+    <string name="history_title">Histórico</string>
+    <string name="search_hint">Pesquisar material...</string>
+    <string name="stat_total_scans">Scans realizados</string>
+    <string name="stat_co2_saved">CO₂ poupado</string>
+    <string name="empty_history">Ainda sem scans guardados</string>
+    <string name="empty_history_sub">Faz o primeiro scan e guarda o resultado</string>
+    <string name="dialog_delete_all_title">Apagar histórico</string>
+    <string name="dialog_delete_all_msg">Tens a certeza? Esta ação não pode ser desfeita.</string>
+    <string name="dialog_delete_title">Apagar scan</string>
+    <string name="dialog_delete_msg">Apagar "%s" do histórico?</string>
+    <string name="delete">Apagar</string>
+    <string name="cancel">Cancelar</string>
+    <string name="delete_all">Apagar todos</string>
 </resources>
