@@ -75,4 +75,17 @@
     <string name="delete">Apagar</string>
     <string name="cancel">Cancelar</string>
     <string name="delete_all">Apagar todos</string>
+
+    <!-- How it works -->
+    <string name="how_title">Como funciona?</string>
+    <string name="how_subtitle">Aprende a usar o EcoScan e percebe o significado de cada código de reciclagem</string>
+    <string name="how_section_steps">Como usar a app</string>
+    <string name="how_section_sensors">Sensores utilizados</string>
+    <string name="how_section_codes">Códigos de reciclagem</string>
+    <string name="how_tip_title">Dica importante</string>
+    <string name="how_tip_text">Em caso de dúvida, deposita no lixo geral. Um resíduo contaminado pode inutilizar um lote inteiro de reciclagem.</string>
+    <string name="sensor_light_name">Luz ambiente</string>
+    <string name="sensor_light_desc">Avisa quando a iluminação é insuficiente para uma boa análise</string>
+    <string name="sensor_accel_name">Acelerómetro</string>
+    <string name="sensor_accel_desc">Deteta movimento e aguarda estabilidade antes de analisar</string>
 </resources>

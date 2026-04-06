@@ -76,8 +76,23 @@ object MaterialDatabase {
             )
         ),
         "METAL" to MaterialInfo(
-            name = "Metal / Alumínio",
-            subtitle = "Lata · Código ♻ 41 · Reciclável",
+            name = "Metal / Aço",
+            subtitle = "Lata de conserva · Código ♻ FE 40 · Reciclável",
+            recycleCode = "FE 40",
+            isRecyclable = true,
+            ecopointColor = EcopointColor.YELLOW,
+            co2SavedGrams = 400,
+            decompYears = 200,
+            energySavedPercent = 75,
+            tips = listOf(
+                "Esvazia e enxagua a lata antes de depositar",
+                "Remove a tampa com cuidado — deposita junto com a lata",
+                "Rótulos de papel não precisam de ser retirados"
+            )
+        ),
+        "ALU" to MaterialInfo(
+            name = "Alumínio",
+            subtitle = "Lata de bebida · Código ♻ ALU 41 · Reciclável",
             recycleCode = "ALU 41",
             isRecyclable = true,
             ecopointColor = EcopointColor.YELLOW,
@@ -85,8 +100,9 @@ object MaterialDatabase {
             decompYears = 200,
             energySavedPercent = 95,
             tips = listOf(
-                "Esvazia e enxagua a lata",
-                "Não precisas de a esmagar — facilita a triagem"
+                "Esvazia a lata completamente",
+                "Não precisas de a esmagar — facilita a triagem automática",
+                "Cápsulas de café de alumínio também vão aqui"
             )
         ),
         "UNKNOWN" to MaterialInfo(
@@ -107,13 +123,17 @@ object MaterialDatabase {
 
     fun getByCode(code: String): MaterialInfo {
         return when {
-            code.contains("PET", ignoreCase = true) || code.contains("1") -> materials["PET"]!!
-            code.contains("HDPE", ignoreCase = true) || code.contains("2") -> materials["HDPE"]!!
+            code.equals("METAL", ignoreCase = true) -> materials["METAL"]!!
+            code.startsWith("FE", ignoreCase = true) -> materials["METAL"]!!
+            code.startsWith("ALU", ignoreCase = true) -> materials["ALU"]!!
+            code.contains("PET", ignoreCase = true) || code == "1" -> materials["PET"]!!
+            code.contains("HDPE", ignoreCase = true) || code == "2" -> materials["HDPE"]!!
+            code.contains("PVC", ignoreCase = true) || code == "3" -> materials["PVC"]!!
+            code.contains("LDPE", ignoreCase = true) || code == "4" -> materials["LDPE"]!!
+            code.contains("PP", ignoreCase = true) || code == "5" -> materials["PP"]!!
+            code.contains("PS", ignoreCase = true) || code == "6" -> materials["PS"]!!
             code.contains("GL", ignoreCase = true) -> materials["GLASS"]!!
-            code.contains("PAP", ignoreCase = true) || code.contains("20") ||
-                    code.contains("21") || code.contains("22") -> materials["PAPER"]!!
-
-            code.contains("ALU", ignoreCase = true) || code.contains("41") -> materials["METAL"]!!
+            code.contains("PAP", ignoreCase = true) -> materials["PAPER"]!!
             else -> materials["UNKNOWN"]!!
         }
     }
