@@ -25,7 +25,7 @@ class CameraManager(
     private val onObjectDetected: (List<DetectedObject>) -> Unit
 ) {
     private var imageCapture: ImageCapture? = null
-    private var camera: androidx.camera.core.Camera? = null  // ← referência guardada
+    private var camera: androidx.camera.core.Camera? = null
     private var torchEnabled = false
 
     fun startCamera() {
@@ -63,7 +63,7 @@ class CameraManager(
         }, ContextCompat.getMainExecutor(context))
     }
 
-    // ─── Tocha ────────────────────────────────────────
+    // Lanterna do dispositivo
     fun toggleTorch() {
         torchEnabled = !torchEnabled
         camera?.cameraControl?.enableTorch(torchEnabled)
@@ -71,7 +71,7 @@ class CameraManager(
 
     val isTorchEnabled: Boolean get() = torchEnabled
 
-    // ─── Captura ──────────────────────────────────────
+    // Captura
     fun capturePhoto(onSaved: (Uri) -> Unit) {
         val outputFile = File(context.externalCacheDir, "${System.currentTimeMillis()}.jpg")
         val outputOptions = ImageCapture.OutputFileOptions.Builder(outputFile).build()
