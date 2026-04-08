@@ -1,7 +1,10 @@
 package com.android.daviddev.ecoscancmem.camera
 
+import android.content.ContentValues
 import android.content.Context
 import android.net.Uri
+import android.os.Build
+import android.provider.MediaStore
 import android.util.Log
 import android.util.Size
 import androidx.camera.core.Camera
@@ -16,7 +19,6 @@ import androidx.camera.view.PreviewView
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.LifecycleOwner
 import com.google.mlkit.vision.objects.DetectedObject
-import java.io.File
 import java.util.concurrent.Executors
 
 class CameraManager(
@@ -79,14 +81,33 @@ class CameraManager(
 
     // Captura
     fun capturePhoto(onSaved: (Uri) -> Unit) {
-        val outputFile = File(context.externalCacheDir, "${System.currentTimeMillis()}.jpg")
-        val outputOptions = ImageCapture.OutputFileOptions.Builder(outputFile).build()
+        val name = "EcoScan_${System.currentTimeMillis()}"
+        val contentValues = ContentValues().apply {
+            put(MediaStore.MediaColumns.DISPLAY_NAME, name)
+            put(MediaStore.MediaColumns.MIME_TYPE, "image/jpeg")
+            if (Build.VERSION.SDK_INT > Build.VERSION_CODES.P) {
+                put(MediaStore.Images.Media.RELATIVE_PATH, "Pictures/EcoScan")
+            }
+        }
+
+        val outputOptions = ImageCapture.OutputFileOptions.Builder(
+            context.contentResolver,
+            MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
+            contentValues
+        ).build()
+
         imageCapture?.takePicture(
             outputOptions,
             ContextCompat.getMainExecutor(context),
             object : ImageCapture.OnImageSavedCallback {
                 override fun onImageSaved(output: ImageCapture.OutputFileResults) {
-                    output.savedUri?.let { onSaved(it) }
+                    val uri = output.savedUri
+                    if (uri != null) {
+                        onSaved(uri)
+                        Log.d("CameraManager", "Photo saved to gallery: $uri")
+                    } else {
+                        Log.e("CameraManager", "Saved URI is null")
+                    }
                 }
 
                 override fun onError(exc: ImageCaptureException) {
