@@ -128,11 +128,11 @@ class ScanFragment : Fragment(R.layout.fragment_scan) {
             findNavController().navigateUp()
         }
 
-        /*binding.btnCapture.setOnClickListener {
+        binding.btnCapture.setOnClickListener {
             cameraManager.capturePhoto { uri ->
                 viewModel.saveCapture(uri)
             }
-        }*/
+        }
 
         binding.btnTorch.setOnClickListener {
             cameraManager.toggleTorch()

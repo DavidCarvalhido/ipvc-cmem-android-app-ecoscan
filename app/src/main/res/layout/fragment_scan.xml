@@ -316,12 +316,12 @@
             </LinearLayout>
 
             <!-- Botão captura -->
-            <!--<FrameLayout
+            <FrameLayout
                 android:id="@+id/btnCapture"
                 android:layout_width="64dp"
                 android:layout_height="64dp">
 
-                <<View
+                <View
                     android:layout_width="64dp"
                     android:layout_height="64dp"
                     android:background="@drawable/bg_capture_outer" />
@@ -330,9 +330,9 @@
                     android:layout_width="52dp"
                     android:layout_height="52dp"
                     android:layout_gravity="center"
-                    android:background="@drawable/bg_capture_inner" /
+                    android:background="@drawable/bg_capture_inner"/>
 
-            </FrameLayout>-->
+            </FrameLayout>
 
             <!-- Botão histórico -->
             <ImageButton
