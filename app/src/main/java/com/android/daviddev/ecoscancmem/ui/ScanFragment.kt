@@ -10,13 +10,12 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import com.android.daviddev.ecoscancmem.R
-import com.android.daviddev.ecoscancmem.camera.CameraManager
 import com.android.daviddev.ecoscancmem.databinding.FragmentScanBinding
 import com.android.daviddev.ecoscancmem.sensor.AccelerometerManager
 import com.android.daviddev.ecoscancmem.sensor.LightSensorManager
@@ -26,9 +25,8 @@ import kotlinx.coroutines.launch
 class ScanFragment : Fragment(R.layout.fragment_scan) {
     private var _binding: FragmentScanBinding? = null
     private val binding get() = _binding!!
-    private val viewModel: ScanViewModel by viewModels()
-
-    private lateinit var cameraManager: CameraManager
+    private val viewModel: ScanViewModel by activityViewModels()
+    private lateinit var cameraManager: com.android.daviddev.ecoscancmem.camera.CameraManager
     private lateinit var lightSensor: LightSensorManager
     private lateinit var accelerometer: AccelerometerManager
 
@@ -39,7 +37,7 @@ class ScanFragment : Fragment(R.layout.fragment_scan) {
                 cameraManager.startCamera()
             } else {
                 binding.tvHint.text = getString(R.string.camera_permission_denied)
-                binding.btnCapture.isEnabled = false
+                //binding.btnCapture.isEnabled = false
             }
         }
 
@@ -71,16 +69,31 @@ class ScanFragment : Fragment(R.layout.fragment_scan) {
         lightSensor.start()
         accelerometer.start()
         viewModel.clearResult()
+
+        // Só inicia a câmara se esta ainda não estiver ativa
+        if (::cameraManager.isInitialized) {
+            cameraManager.startCamera()
+        }
     }
 
     override fun onPause() {
         super.onPause()
         lightSensor.stop()
         accelerometer.stop()
+
+        // Liberta a câmara antes de destruir a view
+        if (::cameraManager.isInitialized) {
+            cameraManager.release()
+        }
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
+        // Para os sensores caso onPause não tenha sido chamado
+        if (::lightSensor.isInitialized) lightSensor.stop()
+        if (::accelerometer.isInitialized) accelerometer.stop()
+        // Liberta a câmara antes de destruir a view
+        if (::cameraManager.isInitialized) cameraManager.release()
         _binding = null
     }
 
@@ -95,7 +108,7 @@ class ScanFragment : Fragment(R.layout.fragment_scan) {
     }
 
     private fun setupCameraWithPermission() {
-        cameraManager = CameraManager(
+        cameraManager = com.android.daviddev.ecoscancmem.camera.CameraManager(
             context = requireContext(),
             lifecycleOwner = viewLifecycleOwner,
             previewView = binding.previewView,
@@ -115,11 +128,11 @@ class ScanFragment : Fragment(R.layout.fragment_scan) {
             findNavController().navigateUp()
         }
 
-        binding.btnCapture.setOnClickListener {
+        /*binding.btnCapture.setOnClickListener {
             cameraManager.capturePhoto { uri ->
                 viewModel.saveCapture(uri)
             }
-        }
+        }*/
 
         binding.btnTorch.setOnClickListener {
             cameraManager.toggleTorch()
@@ -220,9 +233,11 @@ class ScanFragment : Fragment(R.layout.fragment_scan) {
                 launch {
                     viewModel.analysisResult.collect { result ->
                         result ?: return@collect
-                        val action = ScanFragmentDirections
-                            .actionScanToResult(result)
-                        findNavController().navigate(action)
+                        val currentDest = findNavController().currentDestination?.id
+                        if (currentDest == R.id.scanFragment) {
+                            val action = ScanFragmentDirections.actionScanToResult(result)
+                            findNavController().navigate(action)
+                        }
                     }
                 }
             }

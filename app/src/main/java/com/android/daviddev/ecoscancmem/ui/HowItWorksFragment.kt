@@ -22,20 +22,20 @@ class HowItWorksFragment : Fragment() {
 
     private val steps = listOf(
         Step("1",
-            "Aponta a câmara",
-            "Aponta para um objeto ou rótulo de embalagem. A app analisa automaticamente em tempo real."
+            "Aponte a câmara",
+            "Aponte para um objeto ou rótulo de embalagem. A app analisa automaticamente em tempo real."
         ),
         Step("2",
-            "Aguarda a análise",
-            "O ML Kit identifica o objeto e lê o código de reciclagem no rótulo via OCR. Mantém o dispositivo estável."
+            "Aguarde a análise",
+            "O ML Kit identifica o objeto e lê o código de reciclagem no rótulo via OCR. Mantenha o dispositivo estável."
         ),
         Step("3",
-            "Vê o resultado",
-            "Descobre o material, o ecoponto correto, o impacto ambiental e dicas de preparação."
+            "Veja o resultado",
+            "Descubra o material, o ecoponto correto, o impacto ambiental e dicas de preparação."
         ),
         Step("4",
-            "Guarda no histórico",
-            "Regista os scans e acompanha o CO2 total poupado ao longo do tempo."
+            "Guarde no histórico",
+            "Registe os scans e acompanhe o CO2 total poupado ao longo do tempo."
         )
     )
 

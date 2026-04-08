@@ -44,6 +44,18 @@
         <argument
             android:name="scanResult"
             app:argType="com.android.daviddev.ecoscancmem.data.model.ScanResult" />
+
+        <action
+            android:id="@+id/action_result_to_history"
+            app:destination="@id/historyFragment"
+            app:popUpTo="@id/resultFragment"
+            app:popUpToInclusive="true" />
+
+<!--        <action-->
+<!--            android:id="@+id/action_result_to_scan"-->
+<!--            app:destination="@id/scanFragment"-->
+<!--            app:popUpTo="@id/resultFragment"-->
+<!--            app:popUpToInclusive="true" />-->
     </fragment>
 
     <fragment

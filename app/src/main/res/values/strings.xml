@@ -1,28 +1,28 @@
 <resources>
     <string name="app_name">EcoScan</string>
     <string name="action_settings">Settings</string>
-    <string name="splash_tagline">Identifica materiais e descobre\ncomo reciclar corretamente</string>
-    <string name="splash_features_label">O que podes fazer</string>
+    <string name="splash_tagline">Identifique materiais e descubra\ncomo reciclar corretamente</string>
+    <string name="splash_features_label">O que pode fazer</string>
     <string name="splash_env_title">Porquê reciclar bem?</string>
-    <string name="splash_env_text">40% dos resíduos recicláveis da UE vão para aterro por separação incorreta. A tua escolha faz a diferença.</string>
+    <string name="splash_env_text">40% dos resíduos recicláveis da UE vão para aterro por separação incorreta. A sua escolha faz a diferença.</string>
     <string name="splash_btn_start">Começar a usar</string>
     <string name="splash_btn_how">Como funciona?</string>
 
     <!-- Feature rows -->
     <string name="feature_scanner_title">Scanner em tempo real</string>
-    <string name="feature_scanner_desc">Aponta a câmara para qualquer objeto e identifica o material automaticamente</string>
+    <string name="feature_scanner_desc">Aponte a câmara para qualquer objeto e identifique o material automaticamente</string>
     <string name="feature_ocr_title">Leitura de rótulos (OCR)</string>
-    <string name="feature_ocr_desc">Lê automaticamente o código de reciclagem e os materiais do rótulo</string>
+    <string name="feature_ocr_desc">Leia automaticamente o código de reciclagem e os materiais do rótulo</string>
     <string name="feature_dest_title">Destino correto</string>
     <string name="feature_dest_desc">Indica o ecoponto certo e dicas para reduzir o impacto ambiental</string>
     <string name="feature_history_title">Histórico de scans</string>
-    <string name="feature_history_desc">Regista os materiais identificados e acompanha os teus hábitos</string>
+    <string name="feature_history_desc">Registe os materiais identificados e acompanhe os seus hábitos</string>
 
     <!-- Scan Screen -->
     <string name="camera_permission_denied">Permissão de câmara negada. Ativa nas definições do sistema.</string>
-    <string name="scan_hint">Aponta para um objeto ou rótulo</string>
-    <string name="warning_low_light">Pouca luz - aponta para uma zona mais iluminada</string>
-    <string name="analysis_running">A analisar... Object Detection + OCR ativos</string>
+    <string name="scan_hint">Aponte para um objeto ou rótulo</string>
+    <string name="warning_low_light">Pouca luz - aponte para uma zona mais iluminada</string>
+    <string name="analysis_running">A analisar… Object Detection + OCR ativos</string>
     <string name="sensor_light">Luz ambiente</string>
     <string name="sensor_stability">Dispositivo</string>
     <string name="sensor_mode">Modo ativo</string>
@@ -37,8 +37,8 @@
 
     <!-- Results -->
     <string name="result_title">Resultado da análise</string>
-    <string name="result_placeholder_name">A identificar...</string>
-    <string name="result_placeholder_sub">Aguarda a análise</string>
+    <string name="result_placeholder_name">A identificar…</string>
+    <string name="result_placeholder_sub">Aguarde a análise</string>
     <string name="section_ecopoint">Onde depositar</string>
     <string name="section_impact">Impacto ambiental</string>
     <string name="section_ocr">Texto detetado (OCR)</string>
@@ -51,7 +51,7 @@
     <string name="ecopoint_store">Loja com recolha</string>
     <string name="ecopoint_accepts">Plástico e metal</string>
     <string name="ecopoint_nearby">120 m</string>
-    <string name="impact_co2">CO₂ poupado ao reciclar</string>
+    <string name="impact_co2">CO2 poupado ao reciclar</string>
     <string name="impact_decomp">Para se decompor em aterro</string>
     <string name="impact_energy">Energia poupada vs. produção nova</string>
     <string name="impact_code">Código de reciclagem</string>
@@ -63,13 +63,13 @@
 
     <!-- Room -->
     <string name="history_title">Histórico</string>
-    <string name="search_hint">Pesquisar material...</string>
+    <string name="search_hint">Pesquisar material…</string>
     <string name="stat_total_scans">Scans realizados</string>
-    <string name="stat_co2_saved">CO₂ poupado</string>
+    <string name="stat_co2_saved">CO2 poupado</string>
     <string name="empty_history">Ainda sem scans guardados</string>
-    <string name="empty_history_sub">Faz o primeiro scan e guarda o resultado</string>
+    <string name="empty_history_sub">Faça o primeiro scan e guarde o resultado</string>
     <string name="dialog_delete_all_title">Apagar histórico</string>
-    <string name="dialog_delete_all_msg">Tens a certeza? Esta ação não pode ser desfeita.</string>
+    <string name="dialog_delete_all_msg">Tem a certeza? Esta ação não pode ser desfeita.</string>
     <string name="dialog_delete_title">Apagar scan</string>
     <string name="dialog_delete_msg">Apagar "%s" do histórico?</string>
     <string name="delete">Apagar</string>
@@ -78,12 +78,12 @@
 
     <!-- How it works -->
     <string name="how_title">Como funciona?</string>
-    <string name="how_subtitle">Aprende a usar o EcoScan e percebe o significado de cada código de reciclagem</string>
+    <string name="how_subtitle">Aprenda a usar o EcoScan e perceba o significado de cada código de reciclagem</string>
     <string name="how_section_steps">Como usar a app</string>
     <string name="how_section_sensors">Sensores utilizados</string>
     <string name="how_section_codes">Códigos de reciclagem</string>
     <string name="how_tip_title">Dica importante</string>
-    <string name="how_tip_text">Em caso de dúvida, deposita no lixo geral. Um resíduo contaminado pode inutilizar um lote inteiro de reciclagem.</string>
+    <string name="how_tip_text">Em caso de dúvida, deposite no lixo geral. Um resíduo contaminado pode inutilizar um lote inteiro de reciclagem.</string>
     <string name="sensor_light_name">Luz ambiente</string>
     <string name="sensor_light_desc">Avisa quando a iluminação é insuficiente para uma boa análise</string>
     <string name="sensor_accel_name">Acelerómetro</string>
