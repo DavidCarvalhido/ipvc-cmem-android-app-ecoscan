@@ -5,9 +5,7 @@
     android:layout_height="match_parent"
     android:background="@color/black">
 
-    <!-- ═══════════════════════════════════════
-         CAMADA 1 — Preview da câmara (fundo)
-         ═══════════════════════════════════════ -->
+    <!-- CAMADA 1 - Preview da câmara (fundo) -->
     <androidx.camera.view.PreviewView
         android:id="@+id/previewView"
         android:layout_width="0dp"
@@ -18,10 +16,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:scaleType="fillCenter" />
 
-    <!-- ═══════════════════════════════════════
-         CAMADA 2 — Overlay de análise (Canvas)
-         Desenhado pelo ScanOverlayView no código
-         ═══════════════════════════════════════ -->
+    <!-- CAMADA 2 - Overlay de análise (Canvas) Desenhado pelo ScanOverlayView no código -->
     <com.android.daviddev.ecoscancmem.ui.ScanOverlayView
         android:id="@+id/scanOverlay"
         android:layout_width="0dp"
@@ -32,9 +27,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- ═══════════════════════════════════════
-         CAMADA 3 — Barra superior
-         ═══════════════════════════════════════ -->
+    <!-- CAMADA 3 - Barra superior -->
     <LinearLayout
         android:id="@+id/topBar"
         android:layout_width="0dp"
@@ -78,10 +71,7 @@
 
     </LinearLayout>
 
-    <!-- ═══════════════════════════════════════
-         CAMADA 4 — Aviso de luz insuficiente
-         (visibilidade controlada pelo sensor)
-         ═══════════════════════════════════════ -->
+    <!-- CAMADA 4 - Aviso de luz insuficiente (visibilidade controlada pelo sensor) -->
     <LinearLayout
         android:id="@+id/lightWarning"
         android:layout_width="0dp"
@@ -117,9 +107,7 @@
 
     </LinearLayout>
 
-    <!-- ═══════════════════════════════════════
-         CAMADA 5 — Dica central (hint)
-         ═══════════════════════════════════════ -->
+    <!-- CAMADA 5 - Dica central (hint) -->
     <TextView
         android:id="@+id/tvHint"
         android:layout_width="wrap_content"
@@ -135,9 +123,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <!-- ═══════════════════════════════════════
-         CAMADA 6 — Barra de estado de análise
-         ═══════════════════════════════════════ -->
+    <!-- CAMADA 6 - Barra de estado de análise -->
     <LinearLayout
         android:id="@+id/analysisBar"
         android:layout_width="0dp"
@@ -170,9 +156,7 @@
 
     </LinearLayout>
 
-    <!-- ═══════════════════════════════════════
-         CAMADA 7 — Bottom sheet com controlos
-         ═══════════════════════════════════════ -->
+    <!-- CAMADA 7 - Bottom sheet com controlos -->
     <LinearLayout
         android:id="@+id/bottomSheet"
         android:layout_width="0dp"
@@ -332,12 +316,12 @@
             </LinearLayout>
 
             <!-- Botão captura -->
-            <FrameLayout
+            <!--<FrameLayout
                 android:id="@+id/btnCapture"
                 android:layout_width="64dp"
                 android:layout_height="64dp">
 
-                <View
+                <<View
                     android:layout_width="64dp"
                     android:layout_height="64dp"
                     android:background="@drawable/bg_capture_outer" />
@@ -346,9 +330,9 @@
                     android:layout_width="52dp"
                     android:layout_height="52dp"
                     android:layout_gravity="center"
-                    android:background="@drawable/bg_capture_inner" />
+                    android:background="@drawable/bg_capture_inner" /
 
-            </FrameLayout>
+            </FrameLayout>-->
 
             <!-- Botão histórico -->
             <ImageButton

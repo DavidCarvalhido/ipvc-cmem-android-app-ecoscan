@@ -26,9 +26,9 @@ object MaterialDatabase {
             decompYears = 450,
             energySavedPercent = 75,
             tips = listOf(
-                "Esvazia e enxagua antes de depositar",
-                "Remove a tampa — pode ser de material diferente (PP 5)",
-                "Amassa para reduzir o volume"
+                "Esvazie e enxague antes de depositar",
+                "Remova a tampa — pode ser de material diferente (PP 5)",
+                "Amasse para reduzir o volume"
             )
         ),
         "HDPE" to MaterialInfo(
@@ -41,8 +41,8 @@ object MaterialDatabase {
             decompYears = 400,
             energySavedPercent = 70,
             tips = listOf(
-                "Esvazia o frasco completamente",
-                "Não precisas de remover o rótulo de papel"
+                "Esvazie o frasco completamente",
+                "Não precisa de remover o rótulo de papel"
             )
         ),
         "GLASS" to MaterialInfo(
@@ -55,9 +55,9 @@ object MaterialDatabase {
             decompYears = 1000000,
             energySavedPercent = 30,
             tips = listOf(
-                "Deposita no ecoponto verde",
-                "Não quebres — pode ser perigoso",
-                "Remove tampas metálicas antes de depositar"
+                "Deposite no ecoponto verde",
+                "Não quebre — pode ser perigoso",
+                "Remova tampas metálicas antes de depositar"
             )
         ),
         "PAPER" to MaterialInfo(
@@ -70,9 +70,9 @@ object MaterialDatabase {
             decompYears = 5,
             energySavedPercent = 60,
             tips = listOf(
-                "Deposita no ecoponto azul",
+                "Deposite no ecoponto azul",
                 "Cartão molhado ou engordurado vai para o lixo geral",
-                "Dobra as caixas para poupar espaço"
+                "Dobre as caixas para poupar espaço"
             )
         ),
         "METAL" to MaterialInfo(
@@ -85,8 +85,8 @@ object MaterialDatabase {
             decompYears = 200,
             energySavedPercent = 75,
             tips = listOf(
-                "Esvazia e enxagua a lata antes de depositar",
-                "Remove a tampa com cuidado — deposita junto com a lata",
+                "Esvazie e enxague a lata antes de depositar",
+                "Remova a tampa com cuidado — deposite junto com a lata",
                 "Rótulos de papel não precisam de ser retirados"
             )
         ),
@@ -100,8 +100,8 @@ object MaterialDatabase {
             decompYears = 200,
             energySavedPercent = 95,
             tips = listOf(
-                "Esvazia a lata completamente",
-                "Não precisas de a esmagar — facilita a triagem automática",
+                "Esvazie a lata completamente",
+                "Não precisa de a esmagar — facilita a triagem automática",
                 "Cápsulas de café de alumínio também vão aqui"
             )
         ),
@@ -115,8 +115,8 @@ object MaterialDatabase {
             decompYears = 0,
             energySavedPercent = 0,
             tips = listOf(
-                "Consulta o símbolo de reciclagem na embalagem",
-                "Em caso de dúvida, deposita no lixo geral"
+                "Consulte o símbolo de reciclagem na embalagem",
+                "Em caso de dúvida, deposite no lixo geral"
             )
         )
     )
